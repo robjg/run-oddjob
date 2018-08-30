@@ -1,0 +1,46 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+      <groupId>uk.co.rgordon</groupId>
+      <artifactId>oj-assembly</artifactId>
+      <version>1.6-SNAPSHOT</version>
+      <relativePath>../oj-assembly/pom.xml</relativePath>  
+    </parent>
+
+    <artifactId>run-oddjob</artifactId>
+    <packaging>jar</packaging>
+
+    <name>Run Oddjob</name>
+    <url>http://rgordon.co.uk/oddjob</url>
+    <description>Launch Oddjob.</description>
+
+    <scm>
+        <url>https://github.com/robjg/oddjob</url>
+        <connection>scm:git:git://github.com/robjg/run-oddjob.git</connection>
+    </scm>
+
+  <dependencies>
+
+    <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-classic</artifactId>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-all</artifactId>
+      <scope>test</scope>
+    </dependency>
+
+  </dependencies>
+
+</project>
