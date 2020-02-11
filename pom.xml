@@ -4,9 +4,8 @@
 
     <parent>
         <groupId>uk.co.rgordon</groupId>
-        <artifactId>oj-assembly</artifactId>
+        <artifactId>oj-parent</artifactId>
         <version>1.6-SNAPSHOT</version>
-        <relativePath>../oj-assembly/pom.xml</relativePath>
     </parent>
 
     <artifactId>run-oddjob</artifactId>
@@ -44,7 +43,6 @@
         <dependency>
             <groupId>uk.co.rgordon</groupId>
             <artifactId>oddjob</artifactId>
-            <version>${project.version}</version>
             <scope>provided</scope>
         </dependency>
 
