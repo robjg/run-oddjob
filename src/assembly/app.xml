@@ -20,8 +20,12 @@
             <outputDirectory>bin</outputDirectory>
         </fileSet>
         <fileSet>
+            <directory>src/main/opt</directory>
+            <outputDirectory>opt</outputDirectory>
+        </fileSet>
+        <fileSet>
             <directory>${project.basedir}/../oddjob</directory>
-            <outputDirectory>/</outputDirectory>
+            <outputDirectory>./</outputDirectory>
             <includes>
                 <include>README*</include>
                 <include>LICENSE*</include>
