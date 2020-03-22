@@ -1,7 +1,7 @@
 <!-- ===========================================================================
 
-	Build file for Arooa
-	=====================
+	Build file for the Oddjob Application
+	=====================================
 
 ============================================================================ -->
 
@@ -53,7 +53,6 @@
         <property name="main.resources.dir"   value="${src.dir}/main/resources"/>
 		<property name="test.java.dir"        value="${src.dir}/test/java"/>
         <property name="test.resources.dir"   value="${src.dir}/test/resources"/>
-		<property name="lib.dir"              value="./lib"/>
 		<property name="packages"             value="org.oddjob"/>
 
 		<property name="build.dir"        	value="./build"/>
@@ -62,6 +61,9 @@
 		<property name="build.test"       	value="${build.dir}/test"/>
 		<property name="build.test.classes" value="${build.test}/classes"/>
 		<property name="build.javadocs"   	value="${build.dir}/javadocs"/>
+
+		<property name="app.dir"        	value="${build.dir}/oddjob"/>
+
 
 		<property name="test.reports" value="${build.test}/reports"/>
 		
@@ -83,8 +85,13 @@
 	<!-- =================================================================== -->
 	<target name="prepare" depends="init">
 
+		<mkdir dir="${build.dir}"/>
+		<mkdir dir="${app.dir}"/>
+
 		<ivy:resolve />
-		        		
+
+		<ivy:retrieve pattern="${app.dir}/lib/[artifact].[ext]" conf="app"/>
+
 		<ivy:cachepath pathid="classpath" conf="default" />
 		
 		<ivy:cachepath pathid="test-cachepath" conf="test" />
@@ -94,8 +101,6 @@
 			<path refid="test-cachepath"/>
 		</path>
 	
-		<mkdir dir="${build.dir}"/>
-		
 	</target>
 
 	<!-- =================================================================== -->

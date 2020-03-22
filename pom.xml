@@ -68,7 +68,7 @@
                     <descriptors>
                         <descriptor>src/assembly/app.xml</descriptor>
                     </descriptors>
-                    <finalName>app</finalName> <!--folder name in target directory-->
+                    <finalName>oddjob</finalName> <!--folder name in target directory-->
                     <appendAssemblyId>false</appendAssemblyId>
                     <attach>false</attach>
                 </configuration>
