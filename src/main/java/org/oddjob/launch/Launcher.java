@@ -5,12 +5,14 @@ package org.oddjob.launch;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.net.URL;
 import java.net.URLClassLoader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * By Default, launch Oddjob using a classloader with the following:
@@ -20,11 +22,9 @@ import java.util.List;
  *   <li>The opt/classes directory.</li>
  * </ul>
  * 
- * The launcher can also be used as a job to launch other main methods.
- * 
  * @author Rob Gordon, Based on Ant.
  */
-public class Launcher implements Runnable {
+public class Launcher {
 
 	public static final String ODDJOB_HOME_PROPERTY = "oddjob.home";
 	
@@ -33,23 +33,26 @@ public class Launcher implements Runnable {
     public static final String ODDJOB_MAIN_CLASS = "org.oddjob.Main";
 
     /** The class loader to find the main class in. */
-	private ClassLoader classLoader;
+	private final ClassLoader classLoader;
 
 	/** The name of the class that contains the main method. */
-	private String className;
+	private final String className;
 	
 	/** The arguments to pass to main. */
-	private String[] args;
-	
-    public void run() {
+	private final String[] args;
+
+	public Launcher(ClassLoader classLoader, String className, String[] args) {
+		Objects.requireNonNull(classLoader);
+		Objects.requireNonNull(className);
+
+		this.classLoader = classLoader;
+		this.className = className;
+		this.args = args;
+	}
+
+	public void launch() throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, IllegalAccessException {
     	
-    	if (classLoader == null) {
-    		throw new NullPointerException("No ClassLoader.");
-    	}
-    	if (className == null) {
-    		throw new NullPointerException("No Class Name.");
-    	}
-    	
+
     	ClassLoader currentLoader = Thread.currentThread().getContextClassLoader();
         Thread.currentThread().setContextClassLoader(classLoader);
         try {
@@ -57,15 +60,11 @@ public class Launcher implements Runnable {
             
             // use reflection because main is now in another
             // class loader space so we can't get at it.
-            Method method = mainClass.getMethod("main", 
-            	        new Class[] { String[].class });
+            Method method = mainClass.getMethod("main",
+					String[].class);
             
             method.invoke(null, (Object) args);
             
-        } catch (RuntimeException e) {
-        	throw e;
-        } catch (Exception e) {
-        	throw new RuntimeException(e);
         } finally {
             Thread.currentThread().setContextClassLoader(currentLoader);        	
         }
@@ -74,10 +73,12 @@ public class Launcher implements Runnable {
     /**
      * Provides the Oddjob class loader.
      * 
-     * @param currentLoader
-     * @param classpath
-     * @return
-     * @throws IOException
+     * @param currentLoader The current classloader that becomes the parent
+     * @param classpath The classpath to add to the class loader.
+	 *
+     * @return A class loader.
+	 *
+     * @throws IOException If Failing to set canonical paths.
      */
 	static ClassLoader getClassLoader(ClassLoader currentLoader, String[] classpath) 
 	throws IOException {
@@ -88,7 +89,7 @@ public class Launcher implements Runnable {
         System.setProperty(ODDJOB_HOME_PROPERTY, jarDir.getCanonicalPath());
         System.setProperty(ODDJOB_RUN_JAR_PROPERTY, sourceJar.getCanonicalPath());
                 
-        List<File> classPathList = new ArrayList<File>();
+        List<File> classPathList = new ArrayList<>();
         
         // add the source jar
         classPathList.add(sourceJar);
@@ -115,55 +116,30 @@ public class Launcher implements Runnable {
         
     	// The full class path
     	ClassPathHelper classPathHelper = new ClassPathHelper(
-    			classPathList.toArray(new File[classPathList.size()]));
+    			classPathList.toArray(new File[0]));
         
         URL[] urls = classPathHelper.toURLs();
         classPathHelper.appendToJavaClassPath();
         final String classPath = classPathHelper.toString();
-        
-        ClassLoader cl = new URLClassLoader(urls, currentLoader) {
-        	@Override
-        	public String toString() {
-        		return "Oddjob Launcher ClassLoader: " + 
-        					classPath;
-        	}
-        };
-        return cl;
+
+		return new URLClassLoader(urls, currentLoader) {
+			@Override
+			public String toString() {
+				return "Oddjob Launcher ClassLoader: " +
+							classPath;
+			}
+		};
 	}	
 
-	public ClassLoader getClassLoader() {
-		return classLoader;
-	}
-
-	public void setClassLoader(ClassLoader classLoader) {
-		this.classLoader = classLoader;
-	}
-
-	public String getClassName() {
-		return className;
-	}
-
-	public void setClassName(String className) {
-		this.className = className;
-	}
-
-	public String[] getArgs() {
-		return args;
-	}
-
-	public void setArgs(String[] args) {
-		this.args = args;
-	}
-		
 	/**
 	 * Main method for launching Oddjob in it's own class loader.
 	 * The parent class loader will be taken to be the current threads
 	 * context class loader.
 	 * 
-	 * @param args
-	 * @throws IOException
+	 * @param args Args passed to oddjob.
+	 *
 	 */
-    public static void main(String... args) throws IOException {
+    public static void main(String... args) throws IOException, ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InvocationTargetException {
 
     	// process -D property definitions
     	args = new SystemPropertyArgParser().processArgs(args);
@@ -176,12 +152,9 @@ public class Launcher implements Runnable {
         		Thread.currentThread().getContextClassLoader(), 
         		path.getElements());
 
-    	Launcher launcher = new Launcher();
+    	Launcher launcher = new Launcher(loader, ODDJOB_MAIN_CLASS, args);
     	
-    	launcher.setArgs(args);
-        launcher.setClassLoader(loader);
-        launcher.setClassName(ODDJOB_MAIN_CLASS);
-    	launcher.run();
+    	launcher.launch();
     }
     
 }

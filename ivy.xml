@@ -12,14 +12,16 @@
 	</publications>  
 
 	<dependencies>
-		<dependency org="uk.co.rgordon" name="oddjob" rev="latest.integration"
+		<dependency org="uk.co.rgordon" name="oddjob" rev="${project.version}"
 			conf="app->default"/>
 
-        <dependency org="ch.qos.logback" name="logback-classic" rev="1.2.3"
+        <dependency org="ch.qos.logback" name="logback-classic" rev="${logback.version}"
             conf="test->default"/>
-        <dependency org="junit" name="junit" rev="4.12"
+
+		<dependency org="junit" name="junit" rev="${junit.version}"
             conf="test->default"/>
-		<dependency org="org.mockito" name="mockito-all" rev="1.10.19"
+
+		<dependency org="org.mockito" name="mockito-all" rev="${mockito.version}"
 			conf="test->default" />
 	</dependencies>
   

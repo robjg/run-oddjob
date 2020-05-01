@@ -125,9 +125,9 @@
 	<target name="compile" depends="prepare-src-main"
           description="Compiles the source code">
 
-		<copy todir="${build.classes}">
+		<!--copy todir="${build.classes}">
             <fileset dir="${main.resources}"/>
-		</copy>
+		</copy -->
 
 		<echo message="Compiling with Java ${ant.java.version}, debug ${debug}, optimize ${optimize}, deprecation ${deprecation}"/>
 
@@ -162,7 +162,7 @@
 
 		<copy tofile="${app.dir}/run-oddjob.jar" file="${build.dir}/${jar.name}"/>
 
-		<ivy:retrieve pattern="${app.dir}/lib/[artifact].[ext]" conf="app"/>
+		<ivy:retrieve pattern="${app.dir}/lib/[artifact]-[revision].[ext]" conf="app"/>
 
 		<copy toDir="${app.dir}/opt">
 			<fileset dir="${src.dir}/main/opt">
