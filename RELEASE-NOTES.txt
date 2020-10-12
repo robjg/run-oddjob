@@ -8,7 +8,12 @@ Oddjob 1.5. All persisted job state will need to be deleted before upgrading.
 
 Changes in 1.6.0
 ----------------
-- Move Tests to JUnit 4.
+- Added SSH Tasks.
+- Added AWS Tasks.
+- Added a servlet/websocket thick client.
+- Added a design form declaration for arooa descriptors.
+- Added support for JSON Configuration.
+- Moved Tests to JUnit 4.
 - Upgraded oj-ant to Ant 1.10.7
 - Migrated Logging to SLF4J
 - Migrated from Log4j to Logback as the default logging framework. (Log4j is still supported)
@@ -27,7 +32,9 @@ Changes in 1.6.0
 
 Still Todo
 ----------
+- Enhance the Web interface for cut and paste etc.
 
+-
 Deferred to A Later Version
 ---------------------------
 - Add SSL to the web client/server.
@@ -35,7 +42,6 @@ Deferred to A Later Version
 - Add Security to the WebApp (with a Read Only role).
 - Enhance the Web Service to support everything the JMX server does.
 - Create a web client that provides everything the JMX client does.
-- Enhance the Web interface for cut and paste etc.
 - Add a multi-execution task interface.
 - Add Parent Started State to User Guide. Document thread, and services.
 - PropertiesJob after deserialisation is wrong. The properties recovered
