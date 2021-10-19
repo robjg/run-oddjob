@@ -8,6 +8,7 @@ Oddjob 1.5. All persisted job state will need to be deleted before upgrading.
 
 Changes in 1.6.0
 ----------------
+- Reworked Beanbus to be much easier to extend.
 - Added SSH Tasks.
 - Added AWS Tasks.
 - Added a servlet/websocket thick client.
