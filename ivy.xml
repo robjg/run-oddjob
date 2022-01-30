@@ -13,7 +13,7 @@
 
 	<dependencies>
 		<dependency org="uk.co.rgordon" name="oddjob" rev="${project.version}"
-			conf="app->default"/>
+			conf="app->default" changing="true"/>
 
         <dependency org="ch.qos.logback" name="logback-classic" rev="${logback.version}"
             conf="test->default"/>
