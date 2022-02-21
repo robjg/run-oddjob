@@ -8,6 +8,10 @@ Oddjob 1.5. All persisted job state will need to be deleted before upgrading.
 
 Changes in 1.6.0
 ----------------
+- Started a React JS UI replacing some parts of the existing JQuery one. Implemented drag and drop within
+  the tree component, and some ability to change configuration. This is only half finished and is very
+  much a work in progress.
+- Fixed problems with PropertiesJob after deserialization.
 - Reworked Beanbus to be much easier to extend.
 - Add reflection conversion providers.
 - Added SSH Tasks.
@@ -46,9 +50,6 @@ Deferred to A Later Version
 - Create a web client that provides everything the JMX client does.
 - Add a multi-execution task interface.
 - Add Parent Started State to User Guide. Document thread, and services.
-- PropertiesJob after deserialisation is wrong. The properties recovered
-  from the stream are override properties and aren't removed on reset. Also
-  describeable doesn't work.
 - RepeatJob needs more tests and examples. Especially around soft resets.
 - Move Timer and State Jobs out of namespaces because things like 
   timer and if are really core. Create dummy super classes from depricated namespace jobs.
