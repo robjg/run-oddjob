@@ -8,6 +8,9 @@ Oddjob 1.5. All persisted job state will need to be deleted before upgrading.
 
 Changes in 1.6.0
 ----------------
+- Add SSL to web server and client.
+- Value properties no longer get set to null on destroy. This is os we can use
+  beans from Jetty directly in the configuration.
 - Started a React JS UI replacing some parts of the existing JQuery one. Implemented drag and drop within
   the tree component, and some ability to change configuration. This is only half finished and is very
   much a work in progress.

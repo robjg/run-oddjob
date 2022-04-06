@@ -188,6 +188,7 @@
 				<include name="README.md"/>
 				<include name="LICENSE.txt"/>
 				<include name="NOTICE.txt"/>
+				<include name="RELEASE-NOTES.txt"/>
 			</fileset>
 		</copy>
 
