@@ -8,8 +8,12 @@ Oddjob 1.5. All persisted job state will need to be deleted before upgrading.
 
 Changes in 1.6.0
 ----------------
+- Mail Job now supports ssl and password authentication.
+- A service where the @Start method return a CompleteableFuture is wrapped as an asynchronous service.
+- A Callable return a CompleteableFuture is wrapped as an asynchronous job.
+- Support a Job annotation so any method can be a job.
 - Add SSL to web server and client.
-- Value properties no longer get set to null on destroy. This is os we can use
+- Value properties no longer get set to null on destroy. This is so we can use
   beans from Jetty directly in the configuration.
 - Started a React JS UI replacing some parts of the existing JQuery one. Implemented drag and drop within
   the tree component, and some ability to change configuration. This is only half finished and is very
@@ -18,7 +22,7 @@ Changes in 1.6.0
 - Reworked Beanbus to be much easier to extend.
 - Add reflection conversion providers.
 - Added SSH Tasks.
-- Added AWS Tasks.
+- Added AWS Tasks. (No long in the main distribution, only on GitHub)
 - Added a servlet/websocket thick client.
 - Added a design form declaration for arooa descriptors.
 - Added support for JSON Configuration.
