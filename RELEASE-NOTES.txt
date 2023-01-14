@@ -1,7 +1,7 @@
 Oddjob-1.6.0
 ============
 
-* Oddjob 1.6 requires Java 8, maybe Java 9 by the time it's released..
+* Oddjob 1.6 requires Java 8.
 
 * Please Note: This release is not serialisation compatible with 
 Oddjob 1.5. All persisted job state will need to be deleted before upgrading.
@@ -47,10 +47,8 @@ Still Todo
 ----------
 - Enhance the Web interface for cut and paste etc.
 
--
 Deferred to A Later Version
 ---------------------------
-- Add SSL to the web client/server.
 - Support all Methods in the Web client.
 - Add Security to the WebApp (with a Read Only role).
 - Enhance the Web Service to support everything the JMX server does.
@@ -59,7 +57,7 @@ Deferred to A Later Version
 - Add Parent Started State to User Guide. Document thread, and services.
 - RepeatJob needs more tests and examples. Especially around soft resets.
 - Move Timer and State Jobs out of namespaces because things like 
-  timer and if are really core. Create dummy super classes from depricated namespace jobs.
+  timer and if are really core. Create dummy super classes from deprecated namespace jobs.
 - Introduce a witheach job that behaves like foreach except that values
   are 'pushed' into it.
 - Document synthetic annotations in the Developer Guide.
