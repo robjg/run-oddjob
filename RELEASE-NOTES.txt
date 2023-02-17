@@ -1,16 +1,30 @@
-Oddjob-1.6.0
+Oddjob-1.7.0
 ============
 
-* Oddjob 1.6 requires Java 8.
+* Oddjob 1.7 requires Java 11.
 
 * Please Note: This release is not serialisation compatible with 
-Oddjob 1.5. All persisted job state will need to be deleted before upgrading.
+Oddjob 1.6. All persisted job state will need to be deleted before upgrading.
+
+Changes in 1.7.0
+----------------
+
+Outstanding
+-----------
+- Support generic conversions.
+- Enhance the Web interface for cut and paste etc.
+- Add Undo functionality to Oddjob configuration.
+- Redo build to remove Ant/Ivy.
+- Document conversions. Possibly include conversions in the Reference.
+
+Deferred to A Later Version
+---------------------------
 
 Changes in 1.6.0
 ----------------
 - Mail Job now supports ssl and password authentication.
 - A service where the @Start method return a CompleteableFuture is wrapped as an asynchronous service.
-- A Callable return a CompleteableFuture is wrapped as an asynchronous job.
+- A Callable that returns a CompletableFuture is wrapped as an asynchronous job.
 - Support a Job annotation so any method can be a job.
 - Add SSL to web server and client.
 - Value properties no longer get set to null on destroy. This is so we can use
@@ -43,42 +57,6 @@ Changes in 1.6.0
   new services will eventually replace the existing trigger service that only works off state.
 - Add Maven build in addition to Ant/Ivy.
 
-Still Todo
-----------
-- Enhance the Web interface for cut and paste etc.
-
-Deferred to A Later Version
----------------------------
-- Support all Methods in the Web client.
-- Add Security to the WebApp (with a Read Only role).
-- Enhance the Web Service to support everything the JMX server does.
-- Create a web client that provides everything the JMX client does.
-- Add a multi-execution task interface.
-- Add Parent Started State to User Guide. Document thread, and services.
-- RepeatJob needs more tests and examples. Especially around soft resets.
-- Move Timer and State Jobs out of namespaces because things like 
-  timer and if are really core. Create dummy super classes from deprecated namespace jobs.
-- Introduce a witheach job that behaves like foreach except that values
-  are 'pushed' into it.
-- Document synthetic annotations in the Developer Guide.
-- Document conversions. Possibly include conversions in the Reference.
-- Add the ability to change the log level from the UI. Add LogLevel TRACE and
-  NONE to match Log4j.
-- Add serialisation of services.
-- Use a server side file system for choosing files on server component 
-  designer forms.
-- Allow pasting and dragging Oddjobs onto the startup panel of Oddjob 
-  Explorer.
-- Introduce the idea of Read only configuration that can't be modified if
-  it's been loaded from a non modifiable resource, i.e. from the class path.
-- Check a configuration hasn't been modified by someone else before a 
-  modification is saved back from designer.
-- Add Undo functionality to Oddjob configuration.
-- Improve the <rename> job. Follow Ant's lead of changing to a <move> job and
-  copy some of it's feature including; overwrite, force, failonerror, verbose,
-  preservelastmodified. Add the ability to back up the moved files like Linux does.
-- Introduce a FilterType that can filter files by modified date, created date,
-  or match against a regular expression.
 
 
 Changes in 1.5.0
