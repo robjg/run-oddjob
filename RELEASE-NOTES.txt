@@ -11,6 +11,9 @@ Changes in 1.7.0
 
 - Conversions to Instant.
 - Move Javdoc Doclet and Taglet to new Java 9 API.
+- New StateEvent that ensures Time is unique between runs.
+- Move compile and test phases of the build to Maven.
+- Remove oj-hsql from the Oddjob Application build.
 
 Outstanding
 -----------
@@ -19,6 +22,7 @@ Outstanding
 - Add Undo functionality to Oddjob configuration.
 - Redo build to remove Ant/Ivy.
 - Document conversions. Possibly include conversions in the Reference.
+- Create a Markdown reference for GitHub docs.
 
 Deferred to A Later Version
 ---------------------------
