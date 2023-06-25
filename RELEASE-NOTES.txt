@@ -9,18 +9,18 @@ Oddjob 1.6. All persisted job state will need to be deleted before upgrading.
 Changes in 1.7.0
 ----------------
 
-- Conversions to Instant.
-- Move Javdoc Doclet and Taglet to new Java 9 API.
-- New StateEvent that ensures Time is unique between runs.
 - Move compile and test phases of the build to Maven.
-- Remove oj-hsql from the Oddjob Application build.
+- Remove oj-hsql from the packaged Oddjob Application.
+- New StateEvent that ensures Time is unique between runs.
+- Bugfix of remote dragging that incremented id of dropped job.
+- Move Javdoc Doclet and Taglet to new Java 9 API.
+- Conversions to Instant.
 
 Outstanding
 -----------
 - Support generic conversions.
 - Enhance the Web interface for cut and paste etc.
 - Add Undo functionality to Oddjob configuration.
-- Redo build to remove Ant/Ivy.
 - Document conversions. Possibly include conversions in the Reference.
 - Create a Markdown reference for GitHub docs.
 

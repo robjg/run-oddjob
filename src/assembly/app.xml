@@ -27,8 +27,10 @@
             <directory>${project.basedir}/../oddjob</directory>
             <outputDirectory>./</outputDirectory>
             <includes>
-                <include>README*</include>
-                <include>LICENSE*</include>
+                <include>RELEASE_NOTES.txt</include>
+                <include>README.md</include>
+                <include>LICENSE.txt</include>
+                <include>NOTICE.txt</include>
                 <include>oddjob.xml</include>
                 <include>explorer.xml</include>
             </includes>
