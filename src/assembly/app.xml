@@ -23,17 +23,15 @@
             <directory>src/main/opt</directory>
             <outputDirectory>opt</outputDirectory>
         </fileSet>
-        <fileSets>
-            <fileSet>
-                <directory>${project.basedir}</directory>
-                <outputDirectory>./</outputDirectory>
-                <includes>
-                    <include>RELEASE-NOTES.txt</include>
-                    <include>LICENSE.txt</include>
-                    <include>NOTICE.txt</include>
-                </includes>
-            </fileSet>
-        </fileSets>
+        <fileSet>
+            <directory>${project.basedir}</directory>
+            <outputDirectory>./</outputDirectory>
+            <includes>
+                <include>RELEASE-NOTES.txt</include>
+                <include>LICENSE.txt</include>
+                <include>NOTICE.txt</include>
+            </includes>
+        </fileSet>
         <fileSet>
             <directory>${project.basedir}/../oddjob</directory>
             <outputDirectory>./</outputDirectory>
