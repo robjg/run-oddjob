@@ -2,8 +2,19 @@
     <job>
         <sequential>
             <jobs>
-                <exists file="${oddjob.assemble.home}/run-maven.xml"/>
-                <oddjob file="${oddjob.assemble.home}/run-maven.xml"/>
+                <exists file="${oddjob.assemble.home}/run-maven.xml" name="Check run-maven.xml Exists"/>
+                <switch>
+                    <value>
+                        <value value="${oddjob.assemble.target}"/>
+                    </value>
+                    <switches>
+                        <value value="javadoc:javadoc@reference"/>
+                    </switches>
+                    <jobs>
+                        <state:flag name="Ignoring ${oddjob.assemble.target}" xmlns:state="http://rgordon.co.uk/oddjob/state"/>
+                        <oddjob file="${oddjob.assemble.home}/run-maven.xml" name="Run Maven ${oddjob.assemble.target}"/>
+                    </jobs>
+                </switch>
             </jobs>
         </sequential>
     </job>
