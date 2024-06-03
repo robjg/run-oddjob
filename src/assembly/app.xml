@@ -47,6 +47,7 @@
             <includes>
                 <include>uk.co.rgordon:oddjob</include>
                 <include>ch.qos.logback:logback-classic</include>
+                <include>org.openjdk.nashorn:nashorn-core</include>
             </includes>
             <useTransitiveDependencies>true</useTransitiveDependencies>
             <useTransitiveFiltering>true</useTransitiveFiltering>

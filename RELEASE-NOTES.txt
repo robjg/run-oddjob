@@ -9,6 +9,7 @@ Oddjob 1.6. All persisted job state will need to be deleted before upgrading.
 Changes in 1.7.0
 ----------------
 
+- New Reference Docs in Markdown.
 - Move compile and test phases of the build to Maven.
 - Remove oj-hsql from the packaged Oddjob Application.
 - New StateEvent that ensures Time is unique between runs.
