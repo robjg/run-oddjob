@@ -9,6 +9,10 @@ Oddjob 1.6. All persisted job state will need to be deleted before upgrading.
 Changes in 1.7.0
 ----------------
 
+- Move from Log4j to Log4j2.
+- Support a Trigger Strategy in When.
+- Bugfixes in BeanBus.
+- Make Input Handlers Autocloseable so dialogs will be destroyed on Stop.
 - New Reference Docs in Markdown.
 - Move compile and test phases of the build to Maven.
 - Remove oj-hsql from the packaged Oddjob Application.
