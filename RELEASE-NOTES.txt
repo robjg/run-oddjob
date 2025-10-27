@@ -9,6 +9,7 @@ Oddjob 1.6. All persisted job state will need to be deleted before upgrading.
 Changes in 1.7.0
 ----------------
 
+- Improvements to script integration.
 - Move from Log4j to Log4j2.
 - Support a Trigger Strategy in When.
 - Bugfixes in BeanBus.
@@ -21,16 +22,14 @@ Changes in 1.7.0
 - Move Javdoc Doclet and Taglet to new Java 9 API.
 - Conversions to Instant.
 
-Outstanding
------------
+Deferred to A Later Version
+---------------------------
 - Support generic conversions.
 - Enhance the Web interface for cut and paste etc.
 - Add Undo functionality to Oddjob configuration.
 - Document conversions. Possibly include conversions in the Reference.
 - Create a Markdown reference for GitHub docs.
 
-Deferred to A Later Version
----------------------------
 
 Changes in 1.6.0
 ----------------
