@@ -1,10 +1,25 @@
-Oddjob-1.7.0
+Oddjob-1.8.0
 ============
 
-* Oddjob 1.7 requires Java 11.
+* Oddjob 1.8 requires Java 21.
 
 * Please Note: This release is not serialisation compatible with 
-Oddjob 1.6. All persisted job state will need to be deleted before upgrading.
+Oddjob 1.7. All persisted job state will need to be deleted before upgrading.
+
+Changes in 1.8.0
+----------------
+
+Outstanding
+-----------
+- Support generic conversions.
+- Enhance the Web interface for cut and paste etc.
+- Add Undo functionality to Oddjob configuration.
+- Document conversions. Possibly include conversions in the Reference.
+
+Deferred to A Later Version
+---------------------------
+
+
 
 Changes in 1.7.0
 ----------------
@@ -21,15 +36,6 @@ Changes in 1.7.0
 - Bugfix of remote dragging that incremented id of dropped job.
 - Move Javdoc Doclet and Taglet to new Java 9 API.
 - Conversions to Instant.
-
-Deferred to A Later Version
----------------------------
-- Support generic conversions.
-- Enhance the Web interface for cut and paste etc.
-- Add Undo functionality to Oddjob configuration.
-- Document conversions. Possibly include conversions in the Reference.
-- Create a Markdown reference for GitHub docs.
-
 
 Changes in 1.6.0
 ----------------
