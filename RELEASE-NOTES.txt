@@ -8,6 +8,8 @@ Oddjob 1.7. All persisted job state will need to be deleted before upgrading.
 
 Changes in 1.8.0
 ----------------
+
+- Fix issue where deleting a script job did not remove its exported variables.
 - Connection type no longer requires the Driver class (Java hasn't required it since v1.6!).
 
 Outstanding
